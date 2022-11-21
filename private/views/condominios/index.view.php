@@ -30,7 +30,8 @@
 						<td><?= get_date($row->date) ?></td>
 
 						<td>
-							<a href="<?= ROOT ?>/condominios/edit/<?= $row->id ?>">
+						
+						<a href="<?= ROOT ?>/condominios/edit/<?= $row->id ?>">
 								<button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
 							</a>
 

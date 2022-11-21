@@ -23,7 +23,7 @@
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 	 
 	 	<div class="row justify-content-center ">
-
+<!--mvargas user-->
 	 		<?php if(Auth::access('super_admin')):?>
 		 		<div class="card col-3 shadow rounded m-4 p-0 border">
 	 				<a href="<?=ROOT?>/condominios">

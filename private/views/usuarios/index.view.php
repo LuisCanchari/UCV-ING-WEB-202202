@@ -1,5 +1,9 @@
+
+
 <?php $this->view('includes/header') ?>
 <?php $this->view('includes/nav') ?>
+
+
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 	<?php $this->view('includes/crumbs', ['crumbs' => $crumbs]); ?>
 	<a href="<?= ROOT ?>/usuarios/create">
@@ -11,6 +15,7 @@
 				<?php
 				$image = get_image($row->image, $row->persona->genero);
 				?>
+				
 				<div class="card m-2 shadow-sm" style="max-width: 12rem;min-width: 12rem;">
 					<img src="<?= $image ?>" class=" rounded-circle card-img-top w-75 d-block mx-auto mt-" alt="Card image cap">
 					<div class="card-body">

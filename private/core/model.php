@@ -1,8 +1,4 @@
 <?php
-
-/**
- * main model
- */
 class Model extends Database
 {
 	public $errors = array();
@@ -14,7 +10,6 @@ class Model extends Database
 		}
 	}
 
-
 	public function where($column, $value)
 	{
 		$column = addslashes($column);
@@ -22,7 +17,6 @@ class Model extends Database
 		$data = $this->query($query, [
 			'value' => $value
 		]);
-
 		if (is_array($data)) {
 			if (property_exists($this, 'afterSelect')) {
 				foreach ($this->afterSelect as $func) {
@@ -130,8 +124,7 @@ class Model extends Database
 
 	public function update($id, $data)
 	{
-
-
+		
 		//remove unwanted columns
 		if (property_exists($this, 'allowedColumns')) {
 			foreach ($data as $key => $column) {
@@ -140,6 +133,7 @@ class Model extends Database
 				}
 			}
 		}
+		
 
 		//run functions before insert
 		if (property_exists($this, 'beforeUpdate')) {
@@ -147,6 +141,8 @@ class Model extends Database
 				$data = $this->$func($data);
 			}
 		}
+
+		
 
 		$str = "";
 		foreach ($data as $key => $value) {
@@ -159,6 +155,7 @@ class Model extends Database
 		$data['id'] = $id;
 		$query = "update $this->table set $str where id = :id";
 
+		
 		return $this->query($query, $data);
 	}
 

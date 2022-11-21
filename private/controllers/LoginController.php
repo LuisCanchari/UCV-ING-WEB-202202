@@ -9,13 +9,18 @@ class LoginController extends Controller{
  			if($row = $user->where('email',$_POST['email']))
  			{
  				$row = $row[0];
+				
+
  				if(password_verify($_POST['password'], $row->password))
  				{
 					$condominio = new Condominio();
 					$detalle = $condominio->findById($row->condominio_id);
 					$row->condominio_name = $detalle->name;
+				/* 	print_r($row);
+					die(); */
+
 					Auth::authenticate($row);
- 					$this->redirect('/home');	
+ 					$this->redirect('/home');	//http://localhost/ucv_convivir7/public/home ... index
  				}else{
 					$errors['pass'] = "Password incorrecto";
 				}

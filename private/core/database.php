@@ -25,6 +25,7 @@ class Database{
 					if($data_type == "object"){
 				
 						$data = $stm->fetchAll(PDO::FETCH_OBJ);
+
 					}else{
 						$data = $stm->fetchAll(PDO::FETCH_ASSOC);
 					}

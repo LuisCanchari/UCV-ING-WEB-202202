@@ -10,6 +10,7 @@ class UsuariosController extends Controller
 
         $condominio_id = Auth::getCondominio_id();
         $usuario =  new Usuario();
+        
         $data = $usuario->where('condominio_id', $condominio_id);
 
         $crumbs[] = ['Dashboard', ''];
@@ -152,13 +153,14 @@ class UsuariosController extends Controller
             }
 
             if ($user->validate($_POST, $id)) {
-                if ($persona->validate($_POST, $data->id)){
+                if ($persona->validate($_POST, $data->persona_id)){
                     if ($myimage = upload_image($_FILES)) {
                         $_POST['image'] = $myimage;
                     }
                     $_POST['date'] = date("Y-m-d H:i:s");
                     $user->update($id, $_POST);
-                    $persona->update($data->id, $_POST);
+                    //print_r($data); die();
+                    $persona->update($data->persona_id, $_POST);
                     $this->redirect('usuarios/show/' . $id);
                 }else{
                     $errors = $persona->errors;    

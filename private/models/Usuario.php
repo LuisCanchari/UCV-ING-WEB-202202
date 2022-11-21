@@ -10,7 +10,9 @@ class Usuario extends Model
         'rol',
         'date',
         'persona_id',
-        'image'
+        'password',
+        'image',
+        'condominio_id'
     ];
 
     protected $beforeInsert = [
@@ -77,8 +79,10 @@ class Usuario extends Model
 
     public function make_user_name($data)
     {
-        $data['username'] = random_string(60);
+        //$data['username'] = random_string(60);
+        $data['username'] = stristr($data['email'], '@', true);
         return $data;
+
     }
 
     public function make_condominio_id($data)

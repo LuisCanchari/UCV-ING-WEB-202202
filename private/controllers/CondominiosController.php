@@ -12,6 +12,8 @@ class CondominiosController extends Controller
 
         $data = $condominio->findAll();
 
+    
+
         
 
         $crumbs[] = ['Dashboard', ''];
@@ -45,7 +47,12 @@ class CondominiosController extends Controller
 
     public function show($id = null)
     {
+        // generar los datos
+        //acceder a la base de datos  por medio del modelo Condominio
+        //metodo que reciba el parametro $id
+        //recuperar datos de una fila
         
+
         $this->view('condominios/show');
     }
 

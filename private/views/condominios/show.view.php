@@ -4,6 +4,7 @@
 	<div class="container-fluid">
 		<h1>Pagina Detalle Condominio</h1>
 	 
+		<!--organzar los datos recibidos -->
 	</div>
  
 <?php $this->view('includes/footer')?>

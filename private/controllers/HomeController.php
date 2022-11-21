@@ -3,7 +3,7 @@ class HomeController extends Controller
 {
 	public function index()
 	{
-		if(!Auth::logged_in())
+		if(!Auth::logged_in())// v/f
 		{
 			$this->redirect('login');
 		}

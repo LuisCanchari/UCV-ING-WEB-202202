@@ -45,7 +45,7 @@ class Auth
 	public static function __callStatic($method,$params)
 	{
 		
-		$prop = strtolower(str_replace("get","",$method));
+		$prop = strtolower(str_replace("get","",$method)); //condominio_name
 
 		if(isset($_SESSION['USER']->$prop))
 		{
@@ -68,8 +68,8 @@ class Auth
 		}
 	}
 
-	public static function access($rol = 'user')
-	{
+	public static function access($rol = 'user')  //mirol admin
+	{											  //verificar rol super_admin
 		// code...
 	
 		if(!isset($_SESSION['USER']))
